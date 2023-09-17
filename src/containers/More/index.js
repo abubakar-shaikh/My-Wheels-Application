@@ -74,8 +74,8 @@ const More = ({ navigation }) => {
           <View style={styles.profile}>
             <Avatar size={65} source={require('images/Myimages/no-image.jpg')} />
             <View style={styles.name}>
-              <Text font="h1" weight="medium" color='white'>{user.first_name}</Text>
-              <Text font="h4" weight="medium" color='white'>{user.user_name}</Text>
+              <Text font="h1" weight="medium" color='white'>{user?.first_name}</Text>
+              <Text font="h4" weight="medium" color='white'>{user?.user_name}</Text>
             </View>
           </View>
         </View>

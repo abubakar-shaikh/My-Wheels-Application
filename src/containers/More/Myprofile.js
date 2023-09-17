@@ -36,7 +36,7 @@ const Myprofile = ({ navigation,route }) => {
   const[firstname , setFirstname] = useState(user.first_name);
   const[email , setEmail] = useState(user.user_email);
   const[phone , setPhone] = useState(user.user_phone);
-  const[username , setUsername] = useState(user.user_name);
+  const[username , setUsername] = useState(user?.user_name);
   const[lastname , setLastname] = useState(user.last_name);
   const[gender , setGender] = useState(user.gender);
   const [show, setShow] = useState(false);
@@ -88,8 +88,8 @@ const Myprofile = ({ navigation,route }) => {
         />
 
         <TextField
-          label={user.first_name}
-          initialValue={user.first_name}
+          label={user?.first_name}
+          initialValue={user?.first_name}
           name={"firstname"}
           id={"firstname"}
           isCustom={true}
@@ -115,7 +115,7 @@ const Myprofile = ({ navigation,route }) => {
         />
         <TextField
           label="User Name"
-          initialValue={user.user_name}
+          initialValue={user?.user_name}
           name={"user_name"}
           id={"user_name"}
           isCustom={true}

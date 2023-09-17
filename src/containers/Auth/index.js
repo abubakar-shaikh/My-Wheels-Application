@@ -3,7 +3,7 @@ import {View, TouchableOpacity, Image,ScrollView} from 'react-native';
 import {Container,Button,KeyboardAvoidingView,Text,IconButton,Divider,TextField} from 'components';
 import PropTypes from 'prop-types';
 import { scale } from 'react-native-size-matters';
-import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
+import {baseUrl} from '../../../assets/common/baseUrl';
 import axios  from 'axios';
 import {BallIndicator} from 'react-native-indicators';
 import styles from "./styles";

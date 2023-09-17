@@ -83,9 +83,20 @@ const OTP = ({ navigation,route }) => {
         notification("Please Fill OTP", 'warning');
         return
       }
-
-      axios
-      .post(`${baseUrl}verify_login_api/${id}?otp=${otp}`)
+  var qs = require('qs');
+      const data = qs.stringify({
+        'otp': otp,
+    })
+      const config = {
+        method: 'post',
+        url: `${baseUrl}verify_login_api/${id}`,
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded', 
+          'Cookie': 'ci_session=f4062273301edf619a59d8df78c4435e387ec335'
+        },  
+        data : data
+      };
+      axios(config)
       .then(function (res) {
         console.log("DATA IS",res.data)
         if(res.data.status == 200) {
