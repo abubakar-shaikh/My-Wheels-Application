@@ -5,7 +5,7 @@ import {ScrollView, View, TouchableOpacity,Image} from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import axios from 'axios';
-import baseUrl from '../../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl';
 import {useIsFocused } from '@react-navigation/native';
 
 const Popular = ({ navigation }) => {
@@ -39,7 +39,7 @@ const Popular = ({ navigation }) => {
       <TouchableOpacity key={item.id} style={styles.card}  onPress={() => navigation.navigate('ProductDetails',{pid: item.id,ProItem:item})}>
           <View style={styles.imgview}>
           <Image
-             source={{uri:`${baseUrl}uploads/gallery/${JSON.parse(item.gallery)[0]}`}}
+             source={{uri:`${imageUrl}uploads/gallery/${JSON.parse(item.gallery)[0]}`}}
              resizeMode="cover"
             style={styles.image}
             />

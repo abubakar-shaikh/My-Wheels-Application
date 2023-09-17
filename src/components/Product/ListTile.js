@@ -6,7 +6,7 @@ import { getScreenWidth } from 'utils/size';
 import { scale } from 'react-native-size-matters';
 import PropTypes from 'prop-types';
 import Text from '../Text';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import { Heart } from '../Badge';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 
@@ -63,7 +63,7 @@ const ListTile = ({
   >
     <View style={styles.imageContainer}>
       <ImageBackground
-        source={{uri:`${baseUrl}uploads/gallery/${JSON.parse(gallery)[0]}`}}
+        source={{uri:`${imageUrl}uploads/gallery/${JSON.parse(gallery)[0]}`}}
         style={styles.bg}
       />
     </View>

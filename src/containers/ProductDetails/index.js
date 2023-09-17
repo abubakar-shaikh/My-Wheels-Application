@@ -14,7 +14,7 @@ import ImageView from "react-native-image-viewing";
 import { useEffect } from 'react';
 import Swiper from 'react-native-swiper';
 import { verticalScale } from 'react-native-size-matters';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 
 const styles = StyleSheet.create({
   container: {
@@ -144,7 +144,7 @@ const ProductDetails = ({ navigation, route }) => {
           {objImg.map((image,index) => (
             <Pressable key={image} onPress={() => {setimgindex(index),setIsVisible(true),console.log(index)}} style={{flex:1}}>
             <Image
-              source={{uri:`${baseUrl}uploads/gallery/${image}`}}
+              source={{uri:`${imageUrl}uploads/gallery/${image}`}}
               resizeMode="contain"
               style={styles.slide}
             />

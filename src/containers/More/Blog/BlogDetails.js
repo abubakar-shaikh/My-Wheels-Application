@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {Container,NavBar,Text} from 'components';
 import { View, StyleSheet,ImageBackground,useWindowDimensions,ScrollView } from 'react-native';
 import { scale } from 'react-native-size-matters';
-import baseUrl from '../../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl';
 import axios from 'axios';
 import RenderHtml from 'react-native-render-html';
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -39,7 +39,7 @@ const source = {
        <View style={styles.container}>
          <View style={styles.imageContainer}>
            <ImageBackground
-             source={{uri:`${baseUrl}uploads/images/${item.featured_img}`}}
+             source={{uri:`${imageUrl}uploads/images/${item.featured_img}`}}
              style={styles.bg}
            />
          </View>

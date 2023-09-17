@@ -6,7 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../themes/colors';
 import { getScreenWidth } from 'utils/size';
 import Button from '../../components/Touchable/Button';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 
 const Ads = ({navigation, products}) =>{
   return (

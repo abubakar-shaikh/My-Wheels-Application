@@ -4,7 +4,7 @@ import {ScrollView,  View, TouchableOpacity,Image} from 'react-native';
 // import ManageData from 'mocks/ManageData'
 import {  scale } from 'react-native-size-matters';
 import PropTypes from 'prop-types';
-import baseUrl from '../../../../assets/common/baseUrl'
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl'
 import axios from 'axios';
 import styles from './styles';
 import {useIsFocused } from '@react-navigation/native';
@@ -46,7 +46,7 @@ const Manage = ({navigation}) => {
         <View style={styles.card}>
           <View style={styles.imgview}>
            <Image
-             source={{uri:`${baseUrl}uploads/gallery/${JSON.parse(item.gallery)[0]}`}}
+             source={{uri:`${imageUrl}uploads/gallery/${JSON.parse(item.gallery)[0]}`}}
             resizeMode="cover"
             style={styles.image}
             />

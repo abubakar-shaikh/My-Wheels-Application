@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { AuthContext } from 'contexts/AuthContext';
 import axios from 'axios';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import {Container,NavBar,Text,Button} from 'components'
 import FormContaienr from './FormContainer'

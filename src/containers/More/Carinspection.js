@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
 import UserContext from 'contexts/UserContext';
 import {BallIndicator} from 'react-native-indicators';
-import baseUrl from '../../../assets/common/baseUrl'
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { showMessage } from 'react-native-flash-message';
 

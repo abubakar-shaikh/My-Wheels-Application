@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import MultiSlider from '@ptomasroos/react-native-multi-slider'
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
 import axios from 'axios'
-import baseUrl from '../../../../assets/common/baseUrl'
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl'
 // import {useNavigation} from '@react-navigation/native'
 import UserContext from 'contexts/UserContext';
 import {BallIndicator} from 'react-native-indicators';

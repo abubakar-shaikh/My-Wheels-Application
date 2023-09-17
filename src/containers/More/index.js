@@ -6,7 +6,7 @@ import Colors from 'themes/colors';
 import { scale } from 'react-native-size-matters';
 import { AuthContext } from 'contexts/AuthContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import axios from 'axios';
 import { useIsFocused } from '@react-navigation/native';
 

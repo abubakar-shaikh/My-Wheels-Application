@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import {androidCameraPermission} from '../../../../permission';
 import axios from 'axios';
 import UserContext from 'contexts/UserContext';
-import baseUrl from '../../../../assets/common/baseUrl'
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl'
 import {BallIndicator} from 'react-native-indicators';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {showMessage} from 'react-native-flash-message';

@@ -10,7 +10,7 @@ import {
 import { View, StyleSheet, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 import { scale } from 'react-native-size-matters';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import axios from 'axios';
 import {showMessage} from 'react-native-flash-message';
 import {BallIndicator} from 'react-native-indicators';

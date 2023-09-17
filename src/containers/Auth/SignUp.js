@@ -5,7 +5,7 @@ import { getScreenWidth } from 'utils/size';
 import {StyleSheet, View, TouchableOpacity ,ScrollView} from 'react-native';
 import PropTypes from 'prop-types';
 import Colors from 'themes/colors';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import PhoneNumberInput from '../../components/Form/PhoneNumberInput';
 import {
   widthPercentageToDP as wp,

@@ -6,7 +6,7 @@ import {scale} from 'react-native-size-matters';
 import Colors from 'themes/colors';
 import Controls from './Controls';
 //import Filter from './Filter';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import axios from 'axios';
 import UserContext from 'contexts/UserContext';
 import {BallIndicator} from 'react-native-indicators';

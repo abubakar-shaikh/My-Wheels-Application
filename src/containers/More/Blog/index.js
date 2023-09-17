@@ -3,7 +3,7 @@ import {Container,NavBar,Text,Noresult} from 'components';
 import { View, StyleSheet,ImageBackground,TouchableOpacity,FlatList} from 'react-native';
 import { scale } from 'react-native-size-matters';
 import { getScreenWidth } from 'utils/size';
-import baseUrl from '../../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl';
 import axios from 'axios';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import {BallIndicator} from 'react-native-indicators';
@@ -134,7 +134,7 @@ const Blog = ({navigation}) => {
        <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('BlogDetails',{item})}>
          <View style={styles.imageContainer}>
            <ImageBackground
-             source={{uri:`${baseUrl}uploads/images/${item.featured_img}`}}
+             source={{uri:`${imageUrl}uploads/images/${item.featured_img}`}}
              style={styles.bg}
            />
          </View>

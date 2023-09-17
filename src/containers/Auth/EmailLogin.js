@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 import { scale } from 'react-native-size-matters';
 import { AuthContext } from 'contexts/AuthContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import axios from 'axios';
 // import Toast from 'react-native-toast-message';
 import {showMessage} from 'react-native-flash-message';

@@ -9,7 +9,7 @@ import Text from '../Text';
 import Card from '../Card';
 // import Rating from '../Rating';
 import { Heart } from '../Badge';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 
 const styles = StyleSheet.create({
   container: {
@@ -76,7 +76,7 @@ const BasicTile = ({
           }}
         >
           <ImageBackground
-            source={{uri:`${baseUrl}uploads/gallery/${JSON.parse(gallery)[0]}`}}
+            source={{uri:`${imageUrl}uploads/gallery/${JSON.parse(gallery)[0]}`}}
             style={styles.bg}
           />
         </View>

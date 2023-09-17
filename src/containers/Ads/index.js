@@ -7,7 +7,7 @@ import Remove from './TabScren/Remove';
 import {NavBar,IconButton} from 'components';
 import { scale } from 'react-native-size-matters';
 import axios from 'axios';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import { useIsFocused } from '@react-navigation/native';
 import UserContext from 'contexts/UserContext';
 

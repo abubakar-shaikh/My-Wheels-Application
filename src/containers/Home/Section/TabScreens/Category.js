@@ -5,7 +5,7 @@ import { scale, verticalScale } from 'react-native-size-matters';
 import { Text } from 'components';
 import { useNavigation } from '@react-navigation/native';
 import UserContext from 'contexts/UserContext';
-import baseUrl from '../../../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../../../assets/common/baseUrl';
 import {BallIndicator} from 'react-native-indicators';
 import { Skeleton } from '@rneui/themed';
 import {
@@ -67,7 +67,7 @@ const Category = () => {
       onPress={() => navigation.navigate('Category', { title: category[1],isfor:"search",pmt:'category' })}>
       <View style={styles.button}>
         <Image
-          source={{uri:`${baseUrl}uploads/car-icons/${category[2]}`}} 
+          source={{uri:`${imageUrl}uploads/car-icons/${category[2]}`}} 
           resizeMode="contain"
           style={styles.image}
         />

@@ -5,7 +5,7 @@ import {ScrollView, StyleSheet, View, TouchableOpacity, ImageBackground} from 'r
 import { verticalScale, scale } from 'react-native-size-matters';
 import Colors from 'themes/colors';
 import PropTypes from 'prop-types';
-import baseUrl from '../../../../assets/common/baseUrl'
+import {baseUrl,imageUrl} from '../../../../assets/common/baseUrl'
 import axios from 'axios';
 import {useIsFocused } from '@react-navigation/native';
 
@@ -95,7 +95,7 @@ const Supervised = ({ navigation }) => {
         <View style={styles.card}>
           <View style={styles.imgview}>
           <ImageBackground
-            source={{uri:`${baseUrl}uploads/gallery/${JSON.parse(item.gallery)[0]}`}}
+            source={{uri:`${imageUrl}uploads/gallery/${JSON.parse(item.gallery)[0]}`}}
             resizeMode="cover"
             style={styles.image}
             />

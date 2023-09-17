@@ -4,7 +4,7 @@ import { View,SafeAreaView } from 'react-native';
 import PropTypes from 'prop-types';
 import FormContaienr from './FormContainer';
 import axios from 'axios';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 // import Toast from 'react-native-toast-message';
 import styles from './styles';
 import {showMessage} from 'react-native-flash-message';

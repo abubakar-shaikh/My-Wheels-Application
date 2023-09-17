@@ -9,7 +9,7 @@ import UsedCar from './UsedCar';
 import NewCar from './NewCar';
 import axios from 'axios';
 import UserContext from 'contexts/UserContext';
-import baseUrl from '../../../assets/common/baseUrl';
+import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useIsFocused } from '@react-navigation/native';
 
