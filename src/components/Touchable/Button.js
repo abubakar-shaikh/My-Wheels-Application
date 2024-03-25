@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
-import Colors, { colorProps } from 'themes/colors';
-import { scale } from 'react-native-size-matters';
+import Colors, {colorProps} from 'themes/colors';
+import {scale} from 'react-native-size-matters';
 import Text from '../Text';
 
 const styles = StyleSheet.create({
@@ -29,46 +29,55 @@ const styles = StyleSheet.create({
 });
 
 const Button = ({
-  children, label, variant, textColor, color, onPress, size,
+  children,
+  label,
+  variant,
+  textColor,
+  color,
+  onPress,
+  size,
 }) => (
   <TouchableOpacity disabled={variant === 'disabled'} onPress={onPress}>
     {variant === 'gradient' && (
       <LinearGradient
-        start={{ x: 1, y: 1 }}
-        end={{ x: 1, y: 0 }}
-        colors={[ Colors.primary,Colors.tertiary, Colors.primaryAlt]}
+        start={{x: 1.2, y: 0}}
+        end={{x: 0, y: 0}}
+        colors={['#dc333a', '#9a0e12']}
         style={StyleSheet.flatten([
           styles.container,
           size === 'tiny' && styles.tiny,
-        ])}
-      >
+        ])}>
         {children && children}
-        {!children && label && <Text color={textColor || 'white'} weight="medium">{label}</Text>}
+        {!children && label && (
+          <Text color={textColor || 'white'} weight="medium">
+            {label}
+          </Text>
+        )}
       </LinearGradient>
     )}
-    {(variant !== 'gradient') && (
+    {variant !== 'gradient' && (
       <View
         style={StyleSheet.flatten([
           styles.container,
           styles.ghost,
-          variant === 'solid' && { backgroundColor: Colors[color], borderColor: Colors[color] },
+          variant === 'solid' && {
+            backgroundColor: Colors[color],
+            borderColor: Colors[color],
+          },
           variant === 'disabled' && styles.disabled,
           size === 'tiny' && styles.tiny,
-        ])}
-      >
+        ])}>
         {children && children}
         {!children && label && (
           <Text
             color={textColor || (variant === 'disabled' ? 'white' : 'gray50')}
-            weight="medium"
-          >
+            weight="medium">
             {label}
           </Text>
         )}
       </View>
     )}
   </TouchableOpacity>
-
 );
 
 Button.propTypes = {

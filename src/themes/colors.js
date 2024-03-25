@@ -2,7 +2,7 @@ const colors = {
   tertiary: '#B02329',
   primaryAlt: '#B02329',
   primary: '#B02329',
-  brightRed : '#EE4B2B',
+  brightRed: '#EE4B2B',
   primaryBg: '#FCEACE',
   secondary: '#2A234E',
   green: '#4FCE82',
@@ -22,4 +22,4 @@ const colors = {
 
 export default colors;
 
-export const colorProps = Object.keys(colors).map((color) => color);
+export const colorProps = Object.keys(colors).map(color => color);

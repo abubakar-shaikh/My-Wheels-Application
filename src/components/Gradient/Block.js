@@ -3,13 +3,12 @@ import Colors from 'themes/colors';
 import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 
-const GradientBlock = ({ children, style, gradient }) => (
+const GradientBlock = ({children, style, gradient}) => (
   <LinearGradient
-    start={{ x: 1, y: 0 }}
-    end={{ x: 1, y: 0 }}
-    colors={gradient}
-    style={style}
-  >
+    start={{x: 1.2, y: 0}}
+    end={{x: 0, y: 0}}
+    colors={['#dc333a', '#9a0e12']}
+    style={style}>
     {children}
   </LinearGradient>
 );

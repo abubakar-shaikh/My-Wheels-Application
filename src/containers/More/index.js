@@ -1,19 +1,27 @@
-import React, { useContext,useState,useEffect } from 'react';
-import {Container,Avatar, Text,ListItem,GradientBlock} from 'components';
+import React, {useContext, useState, useEffect} from 'react';
+import {Container, Avatar, Text, ListItem, GradientBlock} from 'components';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, ScrollView, TouchableOpacity,} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 import Colors from 'themes/colors';
-import { scale } from 'react-native-size-matters';
-import { AuthContext } from 'contexts/AuthContext';
+import {scale} from 'react-native-size-matters';
+import {AuthContext} from 'contexts/AuthContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {baseUrl,imageUrl} from '../../../assets/common/baseUrl';
+import {baseUrl, imageUrl} from '../../../assets/common/baseUrl';
 import axios from 'axios';
-import { useIsFocused } from '@react-navigation/native';
+import {useIsFocused} from '@react-navigation/native';
+import LinearGradient from 'react-native-linear-gradient';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#fff'
+    backgroundColor: '#fff',
   },
   header: {
     padding: scale(6),
@@ -40,60 +48,84 @@ const styles = StyleSheet.create({
   },
 });
 
-const More = ({ navigation }) => {
-  const { dispatch } = useContext(AuthContext);
-   const [user,setUser] = useState(''); 
-   const [token,setToken] = useState(''); 
-   const isFocused = useIsFocused();
-         
+const More = ({navigation}) => {
+  const {dispatch} = useContext(AuthContext);
+  const [user, setUser] = useState('');
+  const [token, setToken] = useState('');
+  const isFocused = useIsFocused();
+
   useEffect(() => {
     async function fetchMyAPI() {
-      const token =await (AsyncStorage.getItem('@auth_token'));
-      const id =await (AsyncStorage.getItem('user_id'));
-      setToken(token)
-     axios
-      .post(`${baseUrl}get_profile_data/${id}` ,{}, { headers: {"Authorization" : `Bearer ${token}`} })
-      .then((res) => { 
-            if(res.data.status == 200){
-              setUser(res.data.data[0])
-              console.log('profile')
-              } 
-            })
-            .catch((error) => {
-              console.log('Catch Error',error)
-            });
+      const token = await AsyncStorage.getItem('@auth_token');
+      const id = await AsyncStorage.getItem('user_id');
+      setToken(token);
+      console.log('id', id);
+      axios
+        .post(
+          `${baseUrl}get_profile_data/${id}`,
+          {},
+          {headers: {Authorization: `Bearer ${token}`}},
+        )
+        .then(res => {
+          if (res.data.status == 200) {
+            console.log('res', res);
+            setUser(res.data.data[0]);
+            console.log('profile');
+          }
+        })
+        .catch(error => {
+          console.log('Catch Error', error);
+        });
     }
     fetchMyAPI();
-  },[isFocused])
+  }, [isFocused]);
 
   return (
     <Container>
+      <LinearGradient
+        start={{x: 1.2, y: 0}}
+        end={{x: 0, y: 0}}
+        colors={['#dc333a', '#9a0e12']}
+        style={{
+          paddingBottom: widthPercentageToDP(10),
+        }}>
+        <StatusBar translucent={true} backgroundColor={'transparent'} />
+      </LinearGradient>
       <View style={styles.container}>
         <GradientBlock style={styles.header}>
-        <View style={styles.header}>
-          <View style={styles.profile}>
-            <Avatar size={65} source={require('images/Myimages/no-image.jpg')} />
-            <View style={styles.name}>
-              <Text font="h1" weight="medium" color='white'>{user?.first_name}</Text>
-              <Text font="h4" weight="medium" color='white'>{user?.user_name}</Text>
+          <View style={styles.header}>
+            <View style={styles.profile}>
+              <Avatar
+                size={65}
+                source={require('images/Myimages/no-image.jpg')}
+              />
+              <View style={styles.name}>
+                <Text font="h1" weight="medium" color="white">
+                  {user?.first_name}
+                </Text>
+                <Text font="h4" weight="medium" color="white">
+                  {user?.user_name}
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
-          </GradientBlock>
+        </GradientBlock>
         <ScrollView>
           <View style={styles.label}>
-            <Text font='h3' weight='medium'>Personal</Text>
+            <Text font="h3" weight="medium">
+              Personal
+            </Text>
           </View>
           <ListItem
             title="My Profile & Update"
             leftIcon="account-circle-outline"
-            RightIcon='chevron-right'
-            onPress={() => navigation.navigate('Myprofile',{user,token})}
+            RightIcon="chevron-right"
+            onPress={() => navigation.navigate('Myprofile', {user, token})}
           />
           <ListItem
             title="My Ads"
             leftIcon="google-ads"
-            RightIcon='chevron-right'
+            RightIcon="chevron-right"
             onPress={() => navigation.navigate('Ads')}
           />
           {/* <ListItem
@@ -111,12 +143,14 @@ const More = ({ navigation }) => {
           <ListItem
             title="My Messages"
             leftIcon="message-minus-outline"
-            RightIcon='chevron-right'
+            RightIcon="chevron-right"
             onPress={() => navigation.navigate('Chats')}
           />
 
           <View style={styles.label}>
-            <Text font='h3' weight='medium'>Product</Text>
+            <Text font="h3" weight="medium">
+              Product
+            </Text>
           </View>
 
           {/* <ListItem
@@ -134,27 +168,29 @@ const More = ({ navigation }) => {
           <ListItem
             title="Car Inspection"
             leftIcon="car-cog"
-            RightIcon='chevron-right'
+            RightIcon="chevron-right"
             onPress={() => navigation.navigate('Carinspection')}
           />
 
           <View style={styles.label}>
-            <Text font='h3' weight='medium'>Others</Text>
+            <Text font="h3" weight="medium">
+              Others
+            </Text>
           </View>
-          
+
           {/* <ListItem
             title="Videos"
             leftIcon="video"
             RightIcon='chevron-right'
           /> */}
-          
+
           <ListItem
             title="Blogs"
             leftIcon="text-box-outline"
-            RightIcon='chevron-right'
+            RightIcon="chevron-right"
             onPress={() => navigation.navigate('Blog')}
           />
-{/*           
+          {/*           
           <ListItem
             title="Car Finance"
             leftIcon="file-document-edit-outline"
@@ -178,15 +214,17 @@ const More = ({ navigation }) => {
           /> */}
 
           <View style={styles.label}>
-            <Text centered font="h5" color="gray50">App version 1.0.0</Text>
+            <Text centered font="h5" color="gray50">
+              App version 1.0.0
+            </Text>
           </View>
           <TouchableOpacity
             style={styles.signOut}
             onPress={() => [
-              AsyncStorage.removeItem("@auth_token"),
-              dispatch({ type: 'SIGN_OUT' })]}
-          >
-            <Text color='primary'>Sign Out</Text>
+              AsyncStorage.removeItem('@auth_token'),
+              dispatch({type: 'SIGN_OUT'}),
+            ]}>
+            <Text color="primary">Sign Out</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>

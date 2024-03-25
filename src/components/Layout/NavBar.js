@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-  StyleSheet, View, StatusBar, TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, StatusBar, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
-import { getHeaderHeight, getNavBarHeight, getStatusBarHeight } from 'utils/size';
+import {getHeaderHeight, getNavBarHeight, getStatusBarHeight} from 'utils/size';
 import Colors from 'themes/colors';
-import { scale } from 'react-native-size-matters';
+import {scale} from 'react-native-size-matters';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Text from '../Text';
@@ -43,42 +41,34 @@ const styles = StyleSheet.create({
   },
 });
 
-const PlainBar = ({ children }) => (
+const PlainBar = ({children}) => (
   <>
     <StatusBar barStyle="dark-content" />
     <View style={styles.statusBar} />
-    <View style={[styles.navBar, styles.bar, styles.row]}>
-      {children}
-    </View>
+    <View style={[styles.navBar, styles.bar, styles.row]}>{children}</View>
   </>
 );
 
-const GradientBar = ({ children }) => (
+const GradientBar = ({children}) => (
   <>
-    <StatusBar barStyle="light-content" />
+    {/* <StatusBar barStyle="light-content" backgroundColor={'#fff'} /> */}
     <LinearGradient
-        end={{ x: 1, y: 0 }}
-        start={{ x: 1, y: 0 }}
-      colors={[Colors.tertiary, Colors.primaryAlt, Colors.primary]}
-      style={styles.container}
-    >
-      <View style={[styles.bar, styles.row]}>
-        {children}
-      </View>
+      start={{x: 1.2, y: 0}}
+      end={{x: 0, y: 0}}
+      colors={['#dc333a', '#ba1e22', '#9a0e12']}
+      style={styles.container}>
+      <View style={[styles.bar, styles.row]}>{children}</View>
     </LinearGradient>
   </>
 );
 
-const GhostBar = ({ children }) => (
+const GhostBar = ({children}) => (
   <>
     <StatusBar barStyle="light-content" />
     <LinearGradient
       colors={['rgba(0,0,0,0.6)', 'rgba(0,0,0,0.3)', 'transparent']}
-      style={styles.container}
-    >
-      <View style={[styles.bar, styles.row]}>
-        {children}
-      </View>
+      style={styles.container}>
+      <View style={[styles.bar, styles.row]}>{children}</View>
     </LinearGradient>
   </>
 );
@@ -111,8 +101,7 @@ const NavBar = ({
           color={variant === 'plain' ? 'gray100' : 'white'}
           weight="medium"
           numberOfLines={1}
-          style={styles.title}
-        >
+          style={styles.title}>
           {title}
         </Text>
       )}

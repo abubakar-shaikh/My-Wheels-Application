@@ -1,5 +1,4 @@
+const baseUrl = 'https://staging.mywheels.pk/';
+const imageUrl = 'https://mywheels.pk/';
 
- const baseUrl = 'https://staging.mywheels.pk/';
- const imageUrl = 'https://mywheels.pk/';
-
-export  {baseUrl,imageUrl} ;
+export {baseUrl, imageUrl};

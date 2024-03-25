@@ -1,36 +1,41 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Colors, { colorProps } from 'themes/colors';
+import {View, StyleSheet} from 'react-native';
+import Colors, {colorProps} from 'themes/colors';
 import PropTypes from 'prop-types';
 import LinearGradient from 'react-native-linear-gradient';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'#fff',
+    backgroundColor: '#fff',
     flex: 1,
   },
 });
 
 const Container = ({
-  children, backgroundColor, asGradient, style, ...props
+  children,
+  backgroundColor,
+  asGradient,
+  style,
+  ...props
 }) => {
   const Component = asGradient ? LinearGradient : View;
-  const componentProps = asGradient ? {
-    colors: [Colors.tertiary, Colors.primaryAlt, Colors.primary],
-    start: { x: 0, y: 0 },
-    end: { x: 1, y: 0 },
-  } : {};
+  const componentProps = asGradient
+    ? {
+        colors: [Colors.tertiary, Colors.primaryAlt, Colors.primary],
+        start: {x: 0, y: 0},
+        end: {x: 1, y: 0},
+      }
+    : {};
 
   return (
     <Component
       style={StyleSheet.flatten([
         styles.container,
-        { backgroundColor: Colors[backgroundColor] },
+        {backgroundColor: Colors[backgroundColor]},
         style,
       ])}
       {...componentProps}
-      {...props}
-    >
+      {...props}>
       {children}
     </Component>
   );
